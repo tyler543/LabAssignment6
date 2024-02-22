@@ -1,8 +1,23 @@
 #include <stdio.h>
 
 int search(int numbers[], int low, int high, int value) 
-{
+{	if(value < low || value > high)
+		printf("%d not found", value);
+	if(low == high)
+	{
+		printf("Invalid range");
+	}
+	if(high >= low)
+	{
+		int mid = high/2;
+		if(numbers[mid] == value)
+			return value;
+		if(numbers[mid] > value)
+			return search (mid, low, mid - 1, value);
+		
+	}
 	return -1;
+
 }
 
 void printArray(int numbers[], int sz)
